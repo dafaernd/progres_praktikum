@@ -3,6 +3,7 @@
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProductController;
+use App\Http\Controllers\SuppliersController;
 
 Route::get('/', function () {
     return view('welcome');
@@ -25,6 +26,7 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
+//Route Products
 Route::get('/product', [ProductController::class, 'index']);
 // Route::get('/product/create', [ProductController::class, 'create']);
 // Route::post('/product', [ProductController::class, 'store']);
@@ -37,5 +39,13 @@ Route::get('/product', [ProductController::class, 'index']);
 
 Route::get('/product/create', [ProductController::class, 'create'])->name("product-create");
 Route::post('product', [ProductController::class, 'store'])->name("product-store");
+
+//Route Suppliers
+Route::get('/suppliers', [SuppliersController::class, 'index']);
+
+Route::get('/suppliers/create', [SuppliersController::class, 'create'])->name("suppliers-create");
+Route::post('suppliers', [SuppliersController::class, 'store'])->name("suppliers-store");
+
+
 
 require __DIR__ . '/auth.php';
