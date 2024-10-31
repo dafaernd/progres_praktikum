@@ -14,6 +14,11 @@
                         <h2 class="mb-5 text-2xl font-bold">Create New Product</h2>
                         <x-auth-session-status class="mb-4" :status="session('success')" />
                         <form action="{{ route('suppliers-store') }}" method="POST" class="space-y-4">
+                            @if ($errors->any())
+                                @foreach ($errors->all() as $error)
+                                    {{ $error }}
+                                @endforeach
+                            @endif
                             @csrf <!-- Laravel CSRF protection -->
 
                             <div class="form-group">
@@ -24,7 +29,7 @@
                                     required>
                             </div>
 
-                             <div class="form-group">
+                            <div class="form-group">
                                 <label for="supplier_address" class="block text-sm font-medium text-gray-700">Supplier
                                     Address</label>
                                 <input type="text" id="supplier_address" name="supplier_address"
@@ -32,7 +37,7 @@
                                     required>
                             </div>
 
-                             <div class="form-group">
+                            <div class="form-group">
                                 <label for="phone" class="block text-sm font-medium text-gray-700">Phone</label>
                                 <input type="text" id="phone" name="phone"
                                     class="block w-full p-2 mt-1 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
@@ -40,13 +45,12 @@
                             </div>
 
                             <div class="form-group">
-                                <label for="comment"
-                                    class="block text-sm font-medium text-gray-700">Comment</label>
+                                <label for="comment" class="block text-sm font-medium text-gray-700">Comment</label>
                                 <textarea id="comment" name="comment" rows="3"
                                     class="block w-full p-2 mt-1 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"></textarea>
                             </div>
 
-                           
+
 
                             <button type="submit"
                                 class="inline-flex justify-center px-4 py-2 text-sm font-medium text-white bg-indigo-600 border border-transparent rounded-md shadow-sm hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
