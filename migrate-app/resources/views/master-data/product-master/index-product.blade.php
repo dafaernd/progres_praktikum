@@ -23,7 +23,7 @@
             <a href="{{ route('product-create') }}">
 
                 <button
-                    class="px-6 py-4 text-white bg-green-500 border-green-500 rounded-lg shadow-lg hover:bg-green-600 focus:outline-none focus:ring-2 focus:ring-green-500 mb-10">
+                    class="px-6 py-4 text-white bg-green-500 border-green-500 rounded-lg shadow-lg hover:bg-green-600 focus:outline-none focus:ring-2 focus:ring-green-500 mb-50">
                     Add product data
                 </button>
 
