@@ -35,7 +35,7 @@ Route::put('/product/{id}', [ProductController::class, 'update'])->name("product
 Route::get('/product/create', [ProductController::class, 'create'])->name("product-create");
 Route::post('product', [ProductController::class, 'store'])->name("product-store");
 Route::delete('product/{id}', [ProductController::class, 'destroy'])->name('product-deleted');
-
+Route::get('/product/{id}', [ProductController::class, 'show'])->name("product-detail");
 
 //Route Suppliers
 Route::get('/suppliers', [SuppliersController::class, 'index']);
