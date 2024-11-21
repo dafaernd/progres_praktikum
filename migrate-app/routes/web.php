@@ -36,6 +36,7 @@ Route::get('/product/create', [ProductController::class, 'create'])->name("produ
 Route::post('product', [ProductController::class, 'store'])->name("product-store");
 Route::delete('product/{id}', [ProductController::class, 'destroy'])->name('product-deleted');
 Route::get('/product/{id}', [ProductController::class, 'show'])->name("product-detail");
+Route::get('/product/export/excel', [ProductController::class, 'exportExcel']) ->name('product-export-excel');
 
 //Route Suppliers
 Route::get('/suppliers', [SuppliersController::class, 'index']);
