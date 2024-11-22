@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Exports\ProductsExport;
 use App\Models\Product;
+use Barryvdh\DomPDF\Facade\Pdf;
 use Illuminate\Http\Request;
 use Maatwebsite\Excel\Facades\Excel;
 
@@ -123,7 +124,19 @@ class ProductController extends Controller
         return redirect()->back()->with('error', 'Product berhasil dihapus.');
     }
 
-    public function exportExcel(){
+    public function exportExcel()
+    {
         return Excel::download(new ProductsExport, 'product.xlsx');
+    }
+
+    public function exportPdf()
+    {
+        $product = Product::all();
+
+        // $pdf = Pdf::loadView('pdf',$product);
+
+        $pdf = PDF::loadView('master-data.product-master.product-pdf', array('product' =>  $product))->setPaper('a4', 'portrait');
+
+        return $pdf->stream();
     }
 }
