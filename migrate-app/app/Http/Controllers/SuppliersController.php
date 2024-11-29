@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Suppliers;
+use App\Models\Supplier;
 use Illuminate\Http\Request;
 
 class SuppliersController extends Controller
@@ -20,7 +20,7 @@ class SuppliersController extends Controller
      */
     public function create()
     {
-         return view("master-data.suppliers-master.create-suppliers");
+        return view("master-data.suppliers-master.create-suppliers");
     }
 
     /**
@@ -35,7 +35,7 @@ class SuppliersController extends Controller
             'comment' => 'nullable|string',
         ]);
 
-        Suppliers::create($validasi_data);
+        Supplier::create($validasi_data);
 
         return redirect()->back()->with('success', 'Supplier created successfully');
     }
